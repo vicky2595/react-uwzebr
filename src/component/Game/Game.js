@@ -40,7 +40,7 @@ export const Game = () => {
       const newNumberOfTurnLeft = numberOfTurnLeft - 1;
 
       // calculate result
-      const calcResult = calculateWinner(newCellValues, cellIndex);
+      const calcResult = calculateWinner(newCellValues,numberOfTurnLeft, cellIndex);
 
       setCellValues(newCellValues);
       setXIsNext(!xIsNext);

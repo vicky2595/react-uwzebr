@@ -40,7 +40,7 @@ const winningMatrix = {
     [6, 7],
     [2, 5],
     [0, 4],
-  ],
+  ]
 };
 
 export const calculateWinner = (cellValues, numberOfTurnLeft, cellIndex) => {

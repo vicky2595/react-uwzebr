@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Game.css';
 import { Board } from '../Board/Board';
 import { ResultModal } from '../ResultModal/ResultModal';
-import { calculateWinner } from '../Utils/WinnerCalculator'
+import { calculateWinner } from '../Utils/WinnerCalculator';
 
 export const Game = () => {
   const [cellValues, setCellValues] = useState([
@@ -23,16 +23,25 @@ export const Game = () => {
   const [winningCombination, setWinningCombination] = useState([]);
   const isCellEmpty = (cellIndex) => cellValues[cellIndex] === '';
 
+  const restartGame = () => {
+    setCellValues(['', '', '', '', '', '', '', '', '']);
+    setXIsNext(true);
+    setIsGameOver(false);
+    setNumberOfTurnLeft(9);
+    setWinner(undefined);
+    setWinningCombination([]);
+  };
+
   const onCellClicked = (cellIndex) => {
     if (isCellEmpty(cellIndex)) {
       const newCellValues = [...cellValues];
       newCellValues[cellIndex] = xIsNext ? 'X' : 'O';
 
-      const newNumberOfTurnLeft = numberOfTurnLeft-1;
+      const newNumberOfTurnLeft = numberOfTurnLeft - 1;
 
-        // calculate result
-        const calcResult = calculateWinner(newCellValues, cellIndex);
-      
+      // calculate result
+      const calcResult = calculateWinner(newCellValues, cellIndex);
+
       setCellValues(newCellValues);
       setXIsNext(!xIsNext);
       setIsGameOver(calcResult.hasResult);
@@ -52,9 +61,11 @@ export const Game = () => {
           cellClicked={onCellClicked}
         />
       </div>
-      <ResultModal 
-         isGameOver={isGameOver}
-         winner = {winner}   />
+      <ResultModal
+        isGameOver={isGameOver}
+        winner={winner}
+        onNewGameClicked={restartGame}
+      />
     </>
   );
 };

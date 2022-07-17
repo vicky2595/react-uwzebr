@@ -6,9 +6,9 @@ export const ResultModal = (props) => {
   const resultModalClasses = classNames({
     'modal-open': props.isGameOver,
   });
-   
+
   const message = props.winner ? `Winner is ${props.winner}.` : 'It is a tie.';
-  
+
   return (
     <div id="modal-overlay" className={resultModalClasses}>
       <div id="game-result-modal">
@@ -18,7 +18,9 @@ export const ResultModal = (props) => {
           </div>
         </div>
         <div id="new-game-container">
-          <button id="new-game-button">Start New Game</button>
+          <button id="new-game-button" onClick={props.onNewGameClicked}>
+            Start New Game
+          </button>
         </div>
       </div>
     </div>

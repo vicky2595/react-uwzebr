@@ -6,7 +6,7 @@ export const ResultModal = (props) => {
   const resultModalClasses = classNames({
     'modal-open': props.isGameOver,
   });
-
+   
   const message = props.winner ? `Winner is ${props.winner}.` : 'It is a tie.';
   
   return (

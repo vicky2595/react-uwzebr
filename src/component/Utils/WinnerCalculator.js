@@ -57,7 +57,7 @@ export const calculateWinner = (cellValues, numberOfTurnLeft, cellIndex) => {
         winner: currentValue,
         winningCombination: [
           cellIndex,
-          winningMatrix[i][0],
+          winningRanges[i][0],
           winningRanges[i][1],
         ],
       };

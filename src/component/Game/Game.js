@@ -5,17 +5,7 @@ import { ResultModal } from '../ResultModal/ResultModal';
 import { calculateWinner } from '../Utils/WinnerCalculator';
 
 export const Game = () => {
-  const [cellValues, setCellValues] = useState([
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-  ]);
+  const [cellValues, setCellValues] = useState(['','','','','','','','','',]);
   const [xIsNext, setXIsNext] = useState(true);
   const [isGameOver, setIsGameOver] = useState(false);
   const [numberOfTurnLeft, setNumberOfTurnLeft] = useState(9);
@@ -40,7 +30,11 @@ export const Game = () => {
       const newNumberOfTurnLeft = numberOfTurnLeft - 1;
 
       // calculate result
-      const calcResult = calculateWinner(newCellValues,newNumberOfTurnLeft, cellIndex);
+      const calcResult = calculateWinner(
+        newCellValues,
+        newNumberOfTurnLeft,
+        cellIndex
+      );
 
       setCellValues(newCellValues);
       setXIsNext(!xIsNext);

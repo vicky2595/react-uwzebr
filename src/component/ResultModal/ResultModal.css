@@ -9,7 +9,7 @@
   background: var(--modal-overlay-color);
 }
 
-#modal-overplay.modal-open {
+#modal-overlay.modal-open {
   display: grid;
 }
 
